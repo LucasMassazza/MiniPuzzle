@@ -2,12 +2,15 @@ body{
 	background-color: rgba(0,0,0,0.50);
 }
 
+html {
+	background-image:url('../imagenes/imagenentera.jpg'); 
+}
 
 #juego {
 	width: 900px;
 	height: 600px;
-	position: relative;
-	margin: auto;
+	position: absolute;
+	margin: 10% 25%;
 }
 
 .pieza {

@@ -18,13 +18,16 @@ var juego={
 		crearpieza:function(imagen,fi,co){
 
 			var pieza= $("<div>");
+			var fondo= $("html");
 			pieza.addClass("pieza");
 			pieza.css({
 				top: fi*200,
 				left: co*300,
 				backgroundImage:"url(imagenes/"+imagen+".png)"
 				});
-
+			//fondo.css({
+				//backgroundImage:"url(imagenes/imagenentera.jpg)"
+			//});
 			return{
 				filainicial: fi,
 				columnainicial: co,
@@ -109,6 +112,7 @@ var juego={
 					default: return;
 				};
 				tecla.preventDefault();
+				juego.chequearsigano();
 			});
 		},
 
@@ -149,7 +153,7 @@ var juego={
 			var tempo=30;
 			for (var i=0; i<=veces;i++) {
 				
-				var numeroazar=Math.floor(Math.random()*4);
+				var numeroazar=Math.floor(Math.random()*2);
 
 				switch (numeroazar){
 
@@ -175,7 +179,7 @@ var juego={
 
 				}
 
-				this.chequearsigano();
+				
 				
 			}
 
@@ -183,19 +187,27 @@ var juego={
 
 		chequearsigano:function(){
 
-			for (var i=0; i <= 2; i++) {
-				for (var x=0; x <= 2; x++) {
-					
-					console.log(x + i);
-
+					for (var i=0; i <= 2; i++) {
+						for (var x=0; x <= 2; x++) {
+							var  posicionactual= juego.filas[i][x];
+		        			if(posicionactual && !(posicionactual.filainicial == i && posicionactual.columnainicial == x)){
+		         				return false;
+					}
 				}
-
 			}
-
-
-
+			setTimeout(function(){
+				return alert("Felicitaciones ganaste, intenta esa vez hacerlo mas rapido");
+			},1000)
+			
 		}
-};
+	};
+
+/*var music = function(x,y){
+	x=Math.floor((Math.random()*2)+1);
+	y=document.getElementById("musica");
+	y.play();
+
+};*/
 
 
 $(document).ready(function(){
