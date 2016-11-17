@@ -10,7 +10,7 @@ var juego={
 		//Tercer elemento
 		iniciar: function(x){
 				juego.instalarpieza(x);
-				juego.mezclarfichas(20);
+				juego.mezclarfichas(1000);
 				juego.capturarteclas();
 		},
 
@@ -153,7 +153,7 @@ var juego={
 			var tempo=30;
 			for (var i=0; i<=veces;i++) {
 				
-				var numeroazar=Math.floor(Math.random()*20);
+				var numeroazar=Math.floor(Math.random()*3);
 
 				switch (numeroazar){
 
