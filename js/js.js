@@ -153,7 +153,7 @@ var juego={
 			var tempo=30;
 			for (var i=0; i<=veces;i++) {
 				
-				var numeroazar=Math.floor(Math.random()*2);
+				var numeroazar=Math.floor(Math.random()*20);
 
 				switch (numeroazar){
 
